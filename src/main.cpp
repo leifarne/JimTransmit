@@ -126,7 +126,7 @@ void loop()
   float temp = readTemp();
   float vbat = readBattery();
 
-  if (vbat < 3.2) {
+  if (vbat < 2.8) {
     blinkTime = BLINK_SLOW;
   }
 
