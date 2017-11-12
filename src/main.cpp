@@ -146,9 +146,14 @@ void loop()
       Serial.print(": ");
       Serial.println((char*)buf);
 
-      // System power down!
-      digitalWrite(PWR_DONE, HIGH);
-      delay(500);
+      // System power down! Loop to be on the safe side.
+      while (1) {
+        digitalWrite(PWR_DONE, HIGH);
+        delay(1);
+        digitalWrite(PWR_DONE, LOW);
+        delay(1);
+      }
+
       // We never get here.
     }
     else
